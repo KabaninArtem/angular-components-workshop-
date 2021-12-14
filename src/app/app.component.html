@@ -1,0 +1,66 @@
+<nav>
+  <button
+    *ngFor="let component of components"
+    type="button"
+    [class.active]="current === component"
+    (click)="current = component"
+  >
+    {{ component }}
+  </button>
+</nav>
+
+<ng-container [ngSwitch]="current">
+  <ng-container *ngSwitchCase="components[0]">
+    <combobox [items]="items">
+      <input type="text" [(ngModel)]="value" />
+    </combobox>
+
+    <blockquote>
+      See
+      <a href="https://github.com/TinkoffCreditSystems/ng-event-plugins">
+        ng-event-plugins</a
+      >
+      for <code>.prevent</code> suffix in events
+    </blockquote>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="components[1]">
+    <svg
+      class="chart"
+      [lineChart]="lineChart"
+      [x]="x"
+      [y]="0"
+      [width]="width"
+      [height]="200"
+      [smoothing]="smoothing"
+    ></svg>
+
+    <p>
+      <label>
+        <span>offset:</span>
+        <input type="range" min="0" max="400" [(ngModel)]="x" />
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <span>scale:</span>
+        <input type="range" min="400" max="800" [(ngModel)]="width" />
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <span>smoothing:</span>
+        <input type="range" min="0" max="80" [(ngModel)]="smoothing" />
+      </label>
+    </p>
+  </ng-container>
+
+  <player *ngSwitchCase="components[2]">
+    <source
+      src="https://alphamama.me/wp-content/uploads/2020/08/videoplayback.mp4"
+      type="video/mp4"
+    />
+  </player>
+</ng-container>

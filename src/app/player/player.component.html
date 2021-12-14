@@ -1,0 +1,31 @@
+<video
+  #video
+  media
+  class="video"
+  [(currentTime)]="currentTime"
+  [(paused)]="paused"
+  (click)="toggleState()"
+>
+  <ng-content></ng-content>
+</video>
+<div class="controls">
+  <button
+    class="button"
+    type="button"
+    title="Play/Pause"
+    (click)="toggleState()"
+  >
+    {{ icon }}
+  </button>
+  <input
+    class="progress"
+    type="range"
+    [max]="video.duration"
+    [(ngModel)]="currentTime"
+  />
+  <span>
+    <time>{{ currentTime | time }}</time>
+    /
+    <time>{{ video.duration | time }}</time>
+  </span>
+</div>

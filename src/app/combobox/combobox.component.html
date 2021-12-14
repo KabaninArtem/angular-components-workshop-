@@ -1,0 +1,15 @@
+<label for="">
+  <ng-content></ng-content>
+  <div class="toggle" (mousedown.prevent)="toggle()"></div>
+</label>
+<div *ngIf="open" class="list">
+  <div
+    *ngFor="let item of filteredItems; let index = index"
+    class="item"
+    [class.item_active]="isActive(index)"
+    (mouseenter)="onMouseEnter(index)"
+    (click)="onClick(item)"
+  >
+    {{ item }}
+  </div>
+</div>

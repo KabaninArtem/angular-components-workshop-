@@ -1,0 +1,39 @@
+:host {
+  position: relative;
+  display: block;
+  width: 16em;
+  height: 9em;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 12px 12px 8px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 11px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.56));
+}
+
+.button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border: none;
+}
+
+.progress {
+  flex: 1;
+  margin: 0 8px;
+}
